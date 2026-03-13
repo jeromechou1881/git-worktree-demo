@@ -82,6 +82,12 @@
   /* Layout */
   --container-max: 1200px;
   --navbar-height: 72px;
+
+  /* Theme specific components */
+  --color-bg-navbar: rgba(10, 14, 26, 0.8);
+  --color-hero-title-start: #fff;
+  --color-hero-title-mid: var(--color-primary-light);
+  --color-hero-title-end: var(--color-accent-light);
 }
 
 /* --- Reset & Base --- */
@@ -256,7 +262,7 @@ button {
   right: 0;
   height: var(--navbar-height);
   z-index: 1000;
-  background: rgba(10, 14, 26, 0.8);
+  background: var(--color-bg-navbar);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -432,7 +438,7 @@ button {
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: var(--space-6);
-  background: linear-gradient(135deg, #fff 0%, var(--color-primary-light) 50%, var(--color-accent-light) 100%);
+  background: linear-gradient(135deg, var(--color-hero-title-start) 0%, var(--color-hero-title-mid) 50%, var(--color-hero-title-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1241,5 +1247,56 @@ button {
 @media (max-width: 480px) {
   .footer__columns {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   LIGHT THEME OVERRIDES
+   ======================================== */
+[data-theme='light'] {
+  --color-bg: #f8fafc;
+  --color-bg-elevated: #f1f5f9;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f1f5f9;
+  --color-surface: #e2e8f0;
+
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #f8fafc;
+
+  --color-border: rgba(15, 23, 42, 0.1);
+  --color-border-hover: rgba(15, 23, 42, 0.2);
+
+  --color-bg-navbar: rgba(248, 250, 252, 0.8);
+  --color-hero-title-start: #0f172a;
+  --color-hero-title-mid: var(--color-primary-dark);
+  --color-hero-title-end: var(--color-accent);
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 8px 32px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[class*='card'], [class*='elevated'], [class*='surface'] {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .navbar__actions {
+    flex-direction: column;
+    width: 100%;
+    margin-top: var(--space-4);
   }
 }
