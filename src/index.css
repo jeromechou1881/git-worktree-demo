@@ -1363,9 +1363,9 @@ button {
   padding-bottom: var(--space-5);
 }
 
-COOKIE CONSENT
-
-/*======================================== */
+/* ========================================
+   COOKIE CONSENT
+   ======================================== */
 .cookie-consent {
   position: fixed;
   bottom: 0;
